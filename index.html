@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Podcast Role Roulette</title>
+    <!-- Tailwind CSS Setup -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#0034ca",
+                        "primary-container": "#234df1",
+                        "accent-orange": "#F9AD5A",
+                        "background-main": "#FFFFFF",
+                        "card-bg-light": "#CFD8FC",
+                        "on-surface": "#1b1c1c",
+                        "on-surface-variant": "#595959",
+                        "surface-container-lowest": "#ffffff",
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "title-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"]
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & Material Symbols -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Animaciones para la ruleta */
+        .role-content {
+            transition: transform 0.1s ease, opacity 0.1s ease;
+        }
+        .spinning .role-content {
+            animation: blurShake 0.08s infinite alternate;
+            opacity: 0.9;
+        }
+        .result .role-content {
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        @keyframes blurShake {
+            0% { transform: translateY(-3px) scale(1.01); filter: blur(0px); }
+            100% { transform: translateY(3px) scale(0.99); filter: blur(1px); }
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-background-main text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-container selection:text-white">
+    <!-- TopAppBar -->
+    <header class="fixed top-0 w-full bg-background-main shadow-sm flex items-center justify-center h-20 max-w-7xl mx-auto z-50">
+        <div class="flex items-center gap-3">
+            <img alt="LOGIC Logo" class="h-12 object-contain" src="https://res.cloudinary.com/djf2inrky/image/upload/v1764692767/logic_2-29_wwolpl.png"/>
+        </div>
+    </header>
+
+    <!-- Main Content Canvas -->
+    <main class="flex-1 mt-24 mb-10 w-full max-w-[600px] mx-auto px-4 pt-6 pb-12 flex flex-col gap-8 relative">
+        
+        <!-- Input Section -->
+        <section class="flex flex-col gap-2 w-full mt-4">
+            <label class="font-bold text-xs text-white bg-primary-container uppercase px-3 py-1 rounded-full self-start tracking-wide shadow-sm" for="topic-input">TEMA DE HOY</label>
+            <div class="relative group">
+                <input class="w-full bg-card-bg-light border-2 border-transparent focus:border-primary-container rounded-xl px-5 py-4 text-lg text-on-surface-variant outline-none transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] font-medium" id="topic-input" placeholder="Ej: El futuro de la IA generativa" type="text" autocomplete="off"/>
+                <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-primary-container opacity-50 group-focus-within:opacity-100 transition-opacity">
+                    <span class="material-symbols-outlined">mic</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Premium Card (Role Display) -->
+        <section id="role-display" class="flex-1 min-h-[360px] flex flex-col bg-[#062885] rounded-[24px] p-8 shadow-[0_15px_40px_rgba(6,40,133,0.2)] relative overflow-hidden group border-b-8 border-accent-orange">
+            <!-- Ambient lighting effect inside card -->
+            <div class="absolute top-0 right-0 w-[150%] h-[150%] bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent_60%)] pointer-events-none transform -translate-y-1/4 translate-x-1/4"></div>
+            
+            <div id="role-content" class="role-content flex flex-col items-center justify-center flex-1 text-center relative z-10">
+                <!-- Icon Badge -->
+                <div class="w-24 h-24 rounded-2xl bg-surface-container-lowest/10 backdrop-blur-md flex items-center justify-center mb-6 ring-1 ring-surface-container-lowest/20 shadow-lg">
+                    <span id="role-icon" class="material-symbols-outlined text-6xl text-accent-orange drop-shadow-md" style="font-variation-settings: 'FILL' 1;">casino</span>
+                </div>
+                
+                <!-- Role Content -->
+                <div class="flex flex-col gap-2 items-center w-full">
+                    <span class="bg-surface-container-lowest/10 text-surface-container-lowest text-xs px-4 py-1.5 rounded-full uppercase tracking-widest mb-2 ring-1 ring-surface-container-lowest/30 font-semibold">
+                        Rol Asignado
+                    </span>
+                    <h2 id="role-title" class="text-3xl font-bold text-accent-orange leading-tight drop-shadow-sm px-2 mt-2">
+                        ¿Quién serás hoy?
+                    </h2>
+                    <p id="role-desc" class="text-lg text-surface-container-lowest/90 max-w-[320px] mt-4 leading-relaxed font-light">
+                        Presiona el botón para descubrir la perspectiva que tomarás en el debate.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Button -->
+        <section class="w-full mt-auto">
+            <button id="spin-btn" class="w-full bg-primary-container text-white text-xl font-bold py-5 px-6 rounded-xl shadow-lg shadow-primary-container/30 hover:bg-[#062885] hover:-translate-y-1 active:translate-y-0 active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-3 group relative overflow-hidden">
+                <span class="material-symbols-outlined relative z-10 group-hover:rotate-180 transition-transform duration-500">sync</span>
+                <span class="relative z-10 btn-text">Iniciar Asignación</span>
+            </button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
