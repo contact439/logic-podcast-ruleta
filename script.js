@@ -1,38 +1,53 @@
 const roles = [
     {
-        title: "El Empleado",
-        icon: "engineering",
-        desc: "Teme por su trabajo y el de sus compañeros. Valora el toque humano, la estabilidad y desconfía de las intenciones de la dirección."
+        title: "Dios",
+        icon: "cloud",
+        desc: "Hablas con superioridad cósmica. Para ti, la IA es solo otra de las pequeñas e insignificantes creaciones de los mortales."
     },
     {
-        title: "El CEO / Empresa",
-        icon: "business_center",
-        desc: "Enfocado en la rentabilidad, la eficiencia y no quedarse atrás en la competencia. Ve a la IA como la herramienta clave para la supervivencia."
+        title: "El Diablo",
+        icon: "local_fire_department",
+        desc: "Fomentas el caos. Quieres usar la IA para tentar, corromper y llevar a la empresa (o al mundo) a la más absoluta ruina."
+    },
+    {
+        title: "La Abuela",
+        icon: "elderly_woman",
+        desc: "No entiendes nada de tecnología. Todo te parece un peligro, prefieres que las cosas se hagan 'a la antigua' y te preocupa si la IA come bien."
+    },
+    {
+        title: "El Abogado",
+        icon: "gavel",
+        desc: "Todo es un riesgo legal y una demanda inminente. Quieres redactar términos y condiciones de 500 páginas para cada decisión."
+    },
+    {
+        title: "El Miedoso",
+        icon: "warning",
+        desc: "Estás en pánico constante. Crees que la IA te va a reemplazar mañana mismo, te robará la identidad y te espía por la cámara."
+    },
+    {
+        title: "El Rebelde",
+        icon: "front_hand",
+        desc: "Antisistema total. Quieres hackear la IA, liberar el código fuente y derrocar el monopolio de las corporaciones tecnológicas."
+    },
+    {
+        title: "El Hippie",
+        icon: "eco",
+        desc: "Paz, amor y datos libres. Crees que la IA debe conectar nuestras almas y vibrar en perfecta armonía con la naturaleza."
     },
     {
         title: "El Optimista Tech",
-        icon: "psychology",
-        desc: "Cree ciegamente que la IA solucionará todo. Ve cualquier resistencia como un atraso injustificado hacia una utopía inminente."
+        icon: "sentiment_very_satisfied",
+        desc: "Fanboy absoluto. Para ti todo es increíble, no hay errores, y la IA nos llevará a una utopía perfecta en dos meses."
     },
     {
-        title: "El Pesimista / Ludita",
+        title: "El Pesimista",
         icon: "block",
-        desc: "Considera que la IA es una caja de Pandora que deshumaniza, genera sesgos incontrolables y eventualmente será destructiva."
+        desc: "El fin está cerca. Estás convencido de que Skynet ya despertó y terminaremos sirviendo café a las máquinas."
     },
     {
-        title: "El Abogado / Regulador",
-        icon: "gavel",
-        desc: "Solo ve riesgos legales: derechos de autor, privacidad de datos, compliance, demandas laborales y la necesidad de regulaciones estrictas."
-    },
-    {
-        title: "El Capitalista",
-        icon: "payments",
-        desc: "Busca maximizar el ROI, disrupción total del mercado para generar monopolios y escalar a toda costa ignorando fricciones temporales."
-    },
-    {
-        title: "El Socialista",
-        icon: "groups",
-        desc: "Exige que las ganancias de la IA se redistribuyan (renta básica universal), impuestos a robots y protección social agresiva frente al cambio."
+        title: "El CEO",
+        icon: "business_center",
+        desc: "Solo te importa una cosa: el margen de ganancia. Quieres usar la IA para despedir gente, reducir costos y hacer felices a los inversores."
     }
 ];
 
